@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Crown Climb</title>
+    <meta name="description" content="Privacy policy for Crown Climb, a single-player offline card game.">
+    <meta name="theme-color" content="#4A1A6B">
+    <link rel="icon" type="image/png" href="../icon.png">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple-deep: #2D0A3E;
+            --purple-dark: #4A1A6B;
+            --purple-mid: #6B2FA0;
+            --gold: #F4C542;
+            --gold-light: #FFE082;
+            --cream: #FFF8E7;
+            --text-light: #F0E6F6;
+            --text-muted: #BFA8D4;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--purple-deep);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ── Header ── */
+        header {
+            text-align: center;
+            padding: 3rem 1.5rem 2rem;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(107, 47, 160, 0.45) 0%, transparent 60%),
+                var(--purple-deep);
+        }
+
+        header a.back {
+            display: inline-block;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.2s ease;
+        }
+
+        header a.back:hover {
+            opacity: 0.75;
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+
+        header .app-name {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        header .updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        /* ── Content ── */
+        .content {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .content h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .content ul {
+            list-style: none;
+            margin-bottom: 1.25rem;
+            padding-left: 0;
+        }
+
+        .content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .content ul li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: var(--purple-mid);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .content strong {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .content a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 1.5rem 1.25rem 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../" class="back">← Back to Crown Climb</a>
+        <h1>Privacy Policy</h1>
+        <p class="app-name">Crown Climb</p>
+        <p class="updated">Last updated: February 15, 2026</p>
+    </header>
+
+    <main class="content">
+
+        <h2>Overview</h2>
+        <p>Crown Climb is a single-player offline card game. Your privacy is important to us, and this policy explains
+            how the app handles your data.</p>
+
+        <h2>Data Collection</h2>
+        <p>Crown Climb does <strong>not</strong> collect, store, transmit, or share any personal data. The app:</p>
+        <ul>
+            <li>Does not require an account or login</li>
+            <li>Does not connect to the internet</li>
+            <li>Does not use analytics or tracking services</li>
+            <li>Does not contain advertising</li>
+            <li>Does not access your contacts, location, camera, microphone, or any other device sensors</li>
+            <li>Does not use cookies or similar technologies</li>
+        </ul>
+
+        <h2>Local Storage</h2>
+        <p>The app stores your game settings (such as bot turn speed) locally on your device using UserDefaults. This
+            data never leaves your device and is automatically removed when you delete the app.</p>
+
+        <h2>Third-Party Services</h2>
+        <p>Crown Climb does not integrate with any third-party services, SDKs, or APIs.</p>
+
+        <h2>Children's Privacy</h2>
+        <p>Crown Climb does not collect any data from any user, including children under the age of 13.</p>
+
+        <h2>Changes to This Policy</h2>
+        <p>If this policy is updated, the revised version will be posted here with an updated date.</p>
+
+        <h2>Contact</h2>
+        <p>If you have questions about this privacy policy, please open an issue on the <a
+                href="https://github.com/timheuer/crownclimb">GitHub repository</a>.</p>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Tim Heuer. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

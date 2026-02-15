@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crown Climb — A Card Game of Rank &amp; Strategy</title>
+    <meta name="description"
+        content="Crown Climb is a single-player offline card game of rank and strategy. Climb the social ladder from peasant to king!">
+    <meta name="theme-color" content="#4A1A6B">
+    <link rel="icon" type="image/png" href="icon.png">
+    <meta property="og:title" content="Crown Climb — A Card Game of Rank & Strategy">
+    <meta property="og:description"
+        content="Climb the social ladder from peasant to king in this single-player offline card game.">
+    <meta property="og:image" content="icon.png">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple-deep: #2D0A3E;
+            --purple-dark: #4A1A6B;
+            --purple-mid: #6B2FA0;
+            --purple-light: #9B59B6;
+            --gold: #F4C542;
+            --gold-light: #FFE082;
+            --gold-dark: #C9982E;
+            --cream: #FFF8E7;
+            --text-light: #F0E6F6;
+            --text-muted: #BFA8D4;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--purple-deep);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(107, 47, 160, 0.5) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(244, 197, 66, 0.08) 0%, transparent 50%),
+                var(--purple-deep);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, var(--purple-deep));
+            pointer-events: none;
+        }
+
+        .app-icon-wrap {
+            width: 140px;
+            height: 140px;
+            border-radius: 22.37%;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            margin-bottom: 2rem;
+            animation: float 4s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        .app-icon {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .app-store-badge {
+            display: inline-block;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .app-store-badge:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .app-store-badge img {
+            height: 54px;
+        }
+
+        /* ── Screenshot Section ── */
+        .screenshots {
+            padding: 5rem 1.5rem;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(107, 47, 160, 0.15) 0%, transparent 70%),
+                var(--purple-deep);
+        }
+
+        .screenshots h2 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+        }
+
+        .screenshots p {
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 3rem;
+            font-size: 1.05rem;
+        }
+
+        .screenshot-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .screenshot-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow:
+                0 16px 48px rgba(0, 0, 0, 0.45),
+                0 0 0 1px rgba(255, 255, 255, 0.06);
+            max-width: 320px;
+            width: 100%;
+        }
+
+        .screenshot-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ── Features ── */
+        .features {
+            padding: 5rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--gold-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .feature-icon {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        footer .footer-links a {
+            margin: 0 1rem;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 480px) {
+            .app-icon-wrap {
+                width: 110px;
+                height: 110px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-frame {
+                max-width: 260px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="app-icon-wrap">
+            <img src="icon.png" alt="Crown Climb app icon" class="app-icon">
+        </div>
+        <h1>Crown Climb</h1>
+        <p class="tagline">A card game of rank &amp; strategy</p>
+        <a href="https://apps.apple.com/app/crown-climb/id6742044032" class="app-store-badge"
+            aria-label="Download on the App Store">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Download on the App Store">
+        </a>
+    </section>
+
+    <!-- Screenshot -->
+    <section class="screenshots">
+        <h2>Climb the Ranks</h2>
+        <p>Play your cards right to rise from lowly peasant to reigning monarch. Every round is a new chance to
+            overthrow the hierarchy.</p>
+        <div class="screenshot-wrapper">
+            <div class="screenshot-frame">
+                <img src="screenshot.png" alt="Crown Climb gameplay screenshot">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2>Why You'll Love It</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span class="feature-icon">👑</span>
+                <h3>Classic Card Game</h3>
+                <p>Inspired by the beloved social hierarchy card game. Shed your cards fastest to claim the crown.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🤖</span>
+                <h3>Smart Opponents</h3>
+                <p>Play against AI bots with adjustable speed. A full table at your fingertips, any time.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📴</span>
+                <h3>Fully Offline</h3>
+                <p>No internet required. No accounts. No ads. Just you and the cards.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3>Privacy First</h3>
+                <p>Zero data collection. Your game, your device, your business. Nothing ever leaves your phone.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Quick Rounds</h3>
+                <p>Perfect for a quick game on the go. Each round only takes a few minutes to play.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3>Clean Design</h3>
+                <p>A polished, intuitive interface that lets you focus on strategy, not menus.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="privacy/">Privacy Policy</a>
+        </div>
+        <p>&copy; 2026 Tim Heuer. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
