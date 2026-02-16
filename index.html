@@ -136,6 +136,40 @@
             height: 54px;
         }
 
+        /* ── Phone Frame ── */
+        .phone-frame {
+            position: relative;
+            width: min(420px, 80vw);
+            margin: 0 auto 2.5rem;
+            background: #1a1a2e;
+            border-radius: 40px;
+            padding: 14px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 2px rgba(255, 255, 255, 0.08),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 24px;
+            background: #111;
+            border-radius: 0 0 14px 14px;
+            z-index: 2;
+        }
+
+        .phone-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 28px;
+        }
+
         /* ── Screenshot Section ── */
         .screenshots {
             padding: 5rem 1.5rem;
@@ -290,23 +324,14 @@
         </div>
         <h1>Crown Climb</h1>
         <p class="tagline">A card game of rank &amp; strategy</p>
+        <div class="phone-frame">
+            <img src="screenshot.png" alt="Crown Climb gameplay screenshot">
+        </div>
         <a href="https://testflight.apple.com/join/DY2v7P9b" class="app-store-badge"
             aria-label="Download on the App Store">
             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                 alt="Download on the App Store">
         </a>
-    </section>
-
-    <!-- Screenshot -->
-    <section class="screenshots">
-        <h2>Climb the Ranks</h2>
-        <p>Play your cards right to rise from lowly peasant to reigning monarch. Every round is a new chance to
-            overthrow the hierarchy.</p>
-        <div class="screenshot-wrapper">
-            <div class="screenshot-frame">
-                <img src="screenshot.png" alt="Crown Climb gameplay screenshot">
-            </div>
-        </div>
     </section>
 
     <!-- Features -->
